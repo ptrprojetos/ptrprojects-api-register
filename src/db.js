@@ -26,10 +26,10 @@ async function selectCustomers() {
   return res.rows;
 }
 
-async function selectCustomer(id) {
+async function selectCustomer(card) {
   const client = await connect();
-  const res = await client.query('SELECT * FROM funcionarios WHERE id=$1', [
-    id,
+  const res = await client.query('SELECT * FROM funcionarios WHERE cartao=$1', [
+    card,
   ]);
   return res.rows;
 }

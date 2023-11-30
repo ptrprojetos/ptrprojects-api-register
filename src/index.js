@@ -13,9 +13,13 @@ app.get('/', async (req, res) => {
   res.json({ message: 'success!' });
 });
 
-app.get('/funcionarios/:id', async (req, res) => {
-  const funcionarios = await db.selectCustomer(req.params.id);
-  res.json(funcionarios);
+app.post('/funcionarios/:card', async (req, res) => {
+  const funcionarios = await db.selectCustomer(req.params.card);
+  if (funcionarios.length > 0) {
+    res.status(200).send('Card number encontrado');
+  } else {
+    res.status(404).send('Card number não encontrado');
+  }
 });
 
 app.get('/funcionarios', async (req, res) => {
