@@ -16,7 +16,6 @@ async function connect() {
   global.connection = pool;
   return pool.connect();
 }
-//CONNECTION_STRING = postgres://tquqszmc:VYEh7CvU87la35FaOO2Id8AsF5QLiIqf@flora.db.elephantsql.com/tquqszmc
 
 connect();
 
