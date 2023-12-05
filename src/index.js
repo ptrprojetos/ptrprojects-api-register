@@ -38,10 +38,10 @@ app.delete('/funcionarios/:id', async (req, res) => {
   res.sendStatus(204);
 });
 
-app.post('/login/', async (req, res) => {
-  const anser = await db.verifyLogin(req.body);
-  res.json(anser);
-});
+// app.post('/login/', async (req, res) => {
+//   const anser = await db.verifyLogin(req.body);
+//   res.json(anser);
+// });
 
 app.listen(3000, () => {
   console.log('test server');
