@@ -54,14 +54,15 @@ async function deleteCostumer(id) {
   await client.query(sql, [id]);
 }
 
-// async function verifyLogin(costumer) {
-//   const client = await connect();
-//   const sql =
-//     'SELECT * FROM funcionarios WHERE nome = $1 AND cartao = $2 AND setor = $3';
-//   const values = [costumer.nome, costumer.cartao, costumer.setor];
-//   await client.query(sql, values);
-//   return res.rows;
-// }
+//NOTES:
+async function verifyLogin(costumer) {
+  const client = await connect();
+  const sql =
+    'SELECT * FROM funcionarios WHERE nome = $1 AND cartao = $2 AND setor = $3';
+  const values = [costumer.nome, costumer.cartao, costumer.setor];
+  const res = await client.query(sql, values);
+  return res.rows;
+}
 
 module.exports = {
   selectCustomers,
@@ -69,5 +70,5 @@ module.exports = {
   insertCostumer,
   updateCostumer,
   deleteCostumer,
-  // verifyLogin,
+  verifyLogin,
 };
